@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calorie Details</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">My Health</a>
+      <nav>
+        <ul>
+          <li><a href="caloriereport.html">Calorie Report</a></li>
+          <li><a href="workouts.html">Workouts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Calorie Details</h2>
+
+      <section id="details"></section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 MyHealth App. All right reserved.</p>
+    </footer>
+
+    <script>
+      // DataBase
+      const calorieDetail = [
+        { id: "1", meal: "Breakfast", item: "Dosa", calorie: "200 Cal" },
+        { id: "2", meal: "Lunch", item: "pizza", calorie: "2000 Cal" },
+        { id: "3", meal: "Dinner", item: "salad", calorie: "400 Cal" },
+      ];
+
+      function getParameterById(id) {
+        const url = new URL(window.location.href);
+        return url.searchParams.get(id);
+      }
+
+      const id = getParameterById("id");
+      let requiredMeal;
+
+      for (let i = 0; i < calorieDetail.length; i++) {
+        const meal = calorieDetail[i];
+        if (meal.id === id) {
+          requiredMeal = meal;
+        }
+      }
+      console.log(requiredMeal);
+      const calorieDetailElement = document.getElementById("details");
+      if (requiredMeal) {
+        const element = `
+        <h2>${requiredMeal.meal}</h2>
+        <ul>
+          <li>Meal: ${requiredMeal.meal}</li>
+          <li>Item: ${requiredMeal.item}</li>
+          <li>Calories: ${requiredMeal.calorie}</li>
+        </ul>
+        `;
+        calorieDetailElement.innerHTML = element;
+      } else {
+        calorieDetailElement.innerHTML = ` 
+               <p>No Details Found</p>
+         `;
+      }
+    </script>
+  </body>
+</html>
