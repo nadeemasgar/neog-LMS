@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Player Detail</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">Cricket Player Database</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="players.html">Players</a></li>
+          <li><a href="report.html">Report</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Player Details</h2>
+      <section id="detail"></section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Cricket Players</p>
+    </footer>
+
+    <script>
+      let database = [
+        {
+          id: "1",
+          name: "Player 1",
+          country: "India",
+          role: "Batsman",
+        },
+        {
+          id: "2",
+          name: "Player 2",
+          country: "Australia",
+          role: "Bowler",
+        },
+      ];
+
+      function getParameterById(id) {
+        let url = new URL(window.location.href);
+        return url.searchParams.get(id);
+      }
+
+      const id = getParameterById("id");
+
+      let player;
+      for (let i = 0; i < database.length; i++) {
+        if (database[i].id === id) {
+          player = database[i];
+        }
+      }
+
+      const playerDetailElement = document.getElementById("detail");
+      if (player) {
+        const element = `
+        <h3>${player.name}</h3>
+        <p><strong>Country: </strong>${player.country}</p>
+        <p><strong>Role: </strong>${player.role}</p>
+        `;
+        playerDetailElement.innerHTML = element;
+      } else {
+        playerDetailElement.innerHTML = `
+             <p>No Data Found</p> 
+        `;
+      }
+    </script>
+  </body>
+</html>
