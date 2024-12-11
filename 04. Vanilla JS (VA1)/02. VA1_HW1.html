@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="ageInput">Enter your age:</label>
+    <input type="number" id="ageInput" />
+    <button id="validateAgeButton">Validate Age</button>
+    <p id="validateAgeResult"></p>
+
+    <label for="animalInput">Enter your favourite animal:</label>
+    <input type="text" id="animalInput" />
+    <button id="displayAnimalButton">Display Animal</button>
+    <p id="displayAnimal"></p>
+
+    <label for="colorInput">Enter your favourite color:</label>
+    <input type="text" id="colorInput" />
+    <button id="displayColorButton">Display Color</button>
+    <p id="displayColorResult"></p>
+
+    <label for="questionInput">Yes/No Question:</label>
+    <input type="text" id="questionInput" />
+    <button id="messageButton">Display Message</button>
+    <p id="showMessage"></p>
+
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput" />
+    <button id="checkNumberButton">Check Number</button>
+    <p id="showNumber"></p>
+
+    <script>
+      const ageInput = document.getElementById("ageInput");
+      const validateAgeButton = document.getElementById("validateAgeButton");
+      const validateAgeResult = document.getElementById("validateAgeResult");
+
+      validateAgeButton.addEventListener("click", function () {
+        const age = ageInput.value;
+        if (age >= 18 && age <= 100) {
+          validateAgeResult.textContent = `Valid age.`;
+        } else {
+          validateAgeResult.textContent = `Invalid age. Please enter an age between 18 and 100.`;
+        }
+      });
+
+      const animalInput = document.getElementById("animalInput");
+      const displayAnimalButton = document.getElementById(
+        "displayAnimalButton"
+      );
+      const displayAnimalResult = document.getElementById("displayAnimal");
+
+      displayAnimalButton.addEventListener("click", function () {
+        const animalName = animalInput.value;
+
+        displayAnimalResult.textContent = `${animalName}`;
+      });
+
+      const colorInput = document.getElementById("colorInput");
+      const displayColorButton = document.getElementById("displayColorButton");
+      const displayColorResult = document.getElementById("displayColorResult");
+
+      displayColorButton.addEventListener("click", function () {
+        const colorName = colorInput.value;
+
+        displayColorResult.textContent = `${colorName}`;
+      });
+
+      const questionInput = document.getElementById("questionInput");
+      const messageButton = document.getElementById("messageButton");
+      const showMessage = document.getElementById("showMessage");
+
+      messageButton.addEventListener("click", function () {
+        const colorName = questionInput.value;
+
+        showMessage.textContent = `You said '${colorName}'`;
+      });
+
+      const numberInput = document.getElementById("numberInput");
+      const checkNumberButton = document.getElementById("checkNumberButton");
+      const showNumber = document.getElementById("showNumber");
+
+      checkNumberButton.addEventListener("click", function () {
+        const number = numberInput.value;
+
+        if (number % 2 == 0) {
+          showNumber.textContent = `${number} is even`;
+        } else {
+          showNumber.textContent = `${number} is odd`;
+        }
+      });
+    </script>
+  </body>
+</html>
