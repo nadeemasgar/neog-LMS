@@ -1,0 +1,61 @@
+<!-- one example done -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label>Program 1: Select multiple sports: </label>
+    <input type="checkbox" name="game" value="Soccer" /> Soccer
+    <input type="checkbox" name="game" value="Basketball" /> Basketball
+    <input type="checkbox" name="game" value="Tennis" /> Tennis
+    <button id="sportsBtn">Display Selected Sports</button>
+    <p id="showSports"></p>
+
+    <label>Program 2: Choose multiple vacation destinations:</label>
+    <input type="checkbox" name="destination" value="Beach" /> Beach
+    <input type="checkbox" name="destination" value="Mountain" /> Mountain
+    <input type="checkbox" name="destination" value="City" /> City
+    <button id="destinationBtn">Display Selected Sports</button>
+    <p id="showDestination"></p>
+
+    <script>
+      const sportCheckboxes = document.getElementsByName("game");
+      const sportsBtn = document.getElementById("sportsBtn");
+      const showSports = document.getElementById("showSports");
+
+      sportsBtn.addEventListener("click", function () {
+        const selectedSports = [];
+
+        for (let i = 0; i < sportCheckboxes.length; i++) {
+          if (sportCheckboxes[i].checked) {
+            selectedSports.push(sportCheckboxes[i].value);
+          }
+        }
+
+        showSports.textContent = `Selected Sports: ${selectedSports.join(
+          ", "
+        )}`;
+      });
+
+      const destinationCheckbox = document.getElementsByName("destination");
+      const destinationBtn = document.getElementById("destinationBtn");
+      const showDestination = document.getElementById("showDestination");
+
+      destinationBtn.addEventListener("click", function () {
+        const allDestination = [];
+        for (let i = 0; i < destinationCheckbox.length; i++) {
+          if (destinationCheckbox[i].checked) {
+            allDestination.push(destinationCheckbox[i].value);
+          }
+        }
+
+        showDestination.textContent = `Selected Destination: ${allDestination.join(
+          ", "
+        )}`;
+      });
+    </script>
+  </body>
+</html>
