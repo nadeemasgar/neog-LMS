@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="bookListTextarea">Enter your favourite book list: </label>
+    <textarea id="bookListTextarea" rows="4" cols="50"></textarea>
+    <button id="displayBookBtn">Display Book List</button>
+    <p id="showBooks"></p>
+
+    <label for="recipeTextArea">Enter a recipe: </label>
+    <textarea id="recipeTextArea" rows="4" cols="50"></textarea>
+    <button id="displayRecipeBtn">Display Recipe</button>
+    <p id="showRecipe"></p>
+
+    <label for="bioTextarea">Enter your personal bio: </label>
+    <textarea id="bioTextarea" rows="4" cols="50"></textarea>
+    <button id="displayBioBtn">Display Bio</button>
+    <p id="showBio"></p>
+
+    <script>
+      const bookListTextarea = document.getElementById("bookListTextarea");
+      const displayBookBtn = document.getElementById("displayBookBtn");
+      const showBooks = document.getElementById("showBooks");
+
+      displayBookBtn.addEventListener("click", function () {
+        const bookList = bookListTextarea.value;
+        showBooks.textContent = `Your favourite books: ${bookList}`;
+      });
+
+      const recipeTextArea = document.getElementById("recipeTextArea");
+      const displayRecipeBtn = document.getElementById("displayRecipeBtn");
+      const showRecipe = document.getElementById("showRecipe");
+
+      displayRecipeBtn.addEventListener("click", function () {
+        const recipe = recipeTextArea.value.split("\n\n");
+        showRecipe.innerHTML = `
+            <h5>Ingredients: </h5>
+            <p>${recipe[0]}</p>
+        
+            <h5>Instructions: </h5>
+            <p>${recipe[1]}</p>
+        `;
+      });
+
+      const bioTextarea = document.getElementById("bioTextarea");
+      const displayBioBtn = document.getElementById("displayBioBtn");
+      const showBio = document.getElementById("showBio");
+
+      displayBioBtn.addEventListener("click", function () {
+        const bio = bioTextarea.value;
+        showBio.textContent = `Your personal bio: ${bio}`;
+      });
+    </script>
+  </body>
+</html>
