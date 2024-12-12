@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="ageInput">Enter Your age:</label>
+    <input type="text" id="ageInput" />
+    <button id="displayAgeBtn">Display Age</button>
+    <button id="checkAgeBtn">Check Eligibility</button>
+    <p id="showAgeResult"></p>
+
+    <label for="studentInput">Are you a student?</label>
+    <input type="text" id="studentInput" />
+    <button id="displayAnswerBtn">Display Answer</button>
+    <button id="checkStudentBtn">Check Eligibility</button>
+    <p id="showStudentEligibility"></p>
+
+    <script>
+      const ageInput = document.querySelector("#ageInput");
+      const displayAgeBtn = document.querySelector("#displayAgeBtn");
+      const checkAgeBtn = document.querySelector("#checkAgeBtn");
+      const showAgeResult = document.querySelector("#showAgeResult");
+
+      displayAgeBtn.addEventListener("click", function () {
+        const age = ageInput.value;
+        showAgeResult.textContent = `Your age is: ${age}`;
+        showAgeResult.style.color = "black";
+      });
+
+      checkAgeBtn.addEventListener("click", function () {
+        const age = ageInput.value;
+        if (age >= 18) {
+          showAgeResult.style.color = "green";
+        } else {
+          showAgeResult.style.color = "red";
+        }
+      });
+
+      const studentInput = document.querySelector("#studentInput");
+      const displayAnswerBtn = document.querySelector("#displayAnswerBtn");
+      const checkStudentBtn = document.querySelector("#checkStudentBtn");
+      const showStudentEligibility = document.querySelector(
+        "#showStudentEligibility"
+      );
+
+      displayAnswerBtn.addEventListener("click", function () {
+        const ans = studentInput.value;
+        showStudentEligibility.textContent = `Your answer: ${ans}`;
+        showStudentEligibility.style.color = "black";
+      });
+
+      checkStudentBtn.addEventListener("click", function () {
+        const ans = studentInput.value;
+        showStudentEligibility.textContent = `You are eligible`;
+        showStudentEligibility.style.color = "green";
+        if (ans.toLowerCase() === "yes") {
+        } else {
+          showStudentEligibility.textContent = `You are not eligible`;
+          showStudentEligibility.style.color = "red";
+        }
+      });
+    </script>
+  </body>
+</html>
