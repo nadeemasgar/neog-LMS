@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Input Country -->
+    <label for="inputCountry">Enter your country:</label>
+    <input type="text" id="inputCountry" />
+    <button id="displayCountryButton">Display Country</button>
+    <p id="showCountryResult"></p>
+
+    <!-- Input Website -->
+    <label for="inputHeading">Enter a website name: </label>
+    <input type="text" id="inputHeading" />
+    <button id="displayHeadingButton">Display Heading</button>
+    <p id="showHeadingResult"></p>
+
+    <!-- Input Student -->
+    <label for="inputStudent">Are you a student?</label>
+    <input type="text" id="inputStudent" />
+    <button id="responseButton">Display Response</button>
+    <p id="showStudentResponse"></p>
+
+    <!-- age check -->
+    <label for="inputAge">Are you a student?</label>
+    <input type="number" id="inputAge" />
+    <button id="checkAgeButton">Display Response</button>
+    <p id="showAgeResult"></p>
+
+    <script>
+      /* ********* for input country ********* */
+      const inputCountry = document.getElementById("inputCountry");
+      const displayCountryButton = document.getElementById(
+        "displayCountryButton"
+      );
+      const showCountryResult = document.getElementById("showCountryResult");
+
+      displayCountryButton.addEventListener("click", function () {
+        const countryValue = inputCountry.value;
+        showCountryResult.textContent = `Your country is: ${countryValue}`;
+      });
+
+      /* ********* for input website ********* */
+      const inputHeading = document.getElementById("inputHeading");
+      const displayHeadingButton = document.getElementById(
+        "displayHeadingButton"
+      );
+      const showHeadingResult = document.getElementById("showHeadingResult");
+
+      displayHeadingButton.addEventListener("click", function () {
+        const websiteValue = inputHeading.value;
+
+        showHeadingResult.innerHTML = `<h2>${websiteValue}</h2>`;
+      });
+
+      /* ********* for student response ********* */
+      const inputStudent = document.getElementById("inputStudent");
+      const responseButton = document.getElementById("responseButton");
+      const showStudentResponse = document.getElementById(
+        "showStudentResponse"
+      );
+
+      responseButton.addEventListener("click", function () {
+        const studentResponse = inputStudent.value;
+        if (studentResponse.toLowerCase() === "yes") {
+          showStudentResponse.textContent = `You are a student`;
+        } else if (studentResponse.toLowerCase() === "no") {
+          showStudentResponse.textContent = `You are not a student`;
+        } else {
+          showStudentResponse.textContent = `Invalid Input`;
+        }
+      });
+
+      /* ********* for age response ********* */
+      const inputAge = document.getElementById("inputAge");
+      const checkAgeButton = document.getElementById("checkAgeButton");
+      const showAgeResult = document.getElementById("showAgeResult");
+
+      checkAgeButton.addEventListener("click", function () {
+        const ageResponse = inputAge.value;
+        console.log(typeof ageResponse);
+        if (ageResponse >= 18) {
+          showAgeResult.textContent = `You are an Adult.`;
+        } else {
+          showAgeResult.textContent = `You are a Minor.`;
+        }
+      });
+    </script>
+  </body>
+</html>
