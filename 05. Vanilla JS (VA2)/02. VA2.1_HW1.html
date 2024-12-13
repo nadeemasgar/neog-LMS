@@ -1,4 +1,3 @@
-<!-- two example done -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,6 +19,27 @@
     <input type="checkbox" name="destination" value="City" /> City
     <button id="destinationBtn">Display Selected Sports</button>
     <p id="showDestination"></p>
+
+    <label>Program 3: Select multiple movies genres: </label>
+    <input type="checkbox" name="genres" value="Action" /> Action
+    <input type="checkbox" name="genres" value="Comedy" /> Comedy
+    <input type="checkbox" name="genres" value="Drama" /> Drama
+    <button id="showGenresBtn">Display Selected Genres</button>
+    <p id="showGenresResult"></p>
+
+    <label>Program 4: Choose multiple items from a restaurant menu:</label>
+    <input type="checkbox" name="menu" value="Burger" /> Burger
+    <input type="checkbox" name="menu" value="Pizza" /> Pizza
+    <input type="checkbox" name="menu" value="Salad" /> Salad
+    <button id="showMenuBtn">Display Selected Items</button>
+    <p id="showMenu"></p>
+
+    <label>Program 5: Select Multiple Fruits:</label>
+    <input type="checkbox" name="fruit" value="Apple" /> Apple
+    <input type="checkbox" name="fruit" value="Banana" /> Banana
+    <input type="checkbox" name="fruit" value="Orange" /> Orange
+    <button id="fruitsBtn">Display Selected Fruits</button>
+    <p id="showFruits"></p>
 
     <script>
       const sportCheckboxes = document.getElementsByName("game");
@@ -55,6 +75,55 @@
         showDestination.textContent = `Selected Destination: ${allDestination.join(
           ", "
         )}`;
+      });
+
+      const moviesCheckboxs = document.getElementsByName("genres");
+      const showGenresBtn = document.getElementById("showGenresBtn");
+      const showGenresResult = document.getElementById("showGenresResult");
+
+      showGenresBtn.addEventListener("click", function () {
+        const allMovies = [];
+        for (let i = 0; i < moviesCheckboxs.length; i++) {
+          if (moviesCheckboxs[i].checked) {
+            allMovies.push(moviesCheckboxs[i].value);
+          }
+        }
+
+        showGenresResult.textContent = `Selected Movie Genres: ${allMovies.join(
+          ", "
+        )}`;
+      });
+
+      const menuCheckbox = document.getElementsByName("menu");
+      const showMenuBtn = document.getElementById("showMenuBtn");
+      const showMenu = document.getElementById("showMenu");
+
+      showMenuBtn.addEventListener("click", function () {
+        const allMenus = [];
+
+        for (let i = 0; i < menuCheckbox.length; i++) {
+          if (menuCheckbox[i].checked) {
+            allMenus.push(menuCheckbox[i].value);
+          }
+        }
+
+        showMenu.textContent = `Selected Movie Genre: ${allMenus.join(", ")}`;
+      });
+
+      const fruitCheckbox = document.getElementsByName("fruit");
+      const fruitsBtn = document.getElementById("fruitsBtn");
+      const showFruits = document.getElementById("showFruits");
+
+      fruitsBtn.addEventListener("click", function () {
+        const allFruits = [];
+
+        for (let i = 0; i < fruitCheckbox.length; i++) {
+          if (fruitCheckbox[i].checked) {
+            allFruits.push(fruitCheckbox[i].value);
+          }
+        }
+
+        showFruits.textContent = `Selected Fruits : ${allFruits.join(", ")}`;
       });
     </script>
   </body>
