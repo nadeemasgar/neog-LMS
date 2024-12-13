@@ -1,4 +1,4 @@
-<!-- password example missing -->
+<!-- password example missing   -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,6 +18,12 @@
     <button id="displayAnswerBtn">Display Answer</button>
     <button id="checkStudentBtn">Check Eligibility</button>
     <p id="showStudentEligibility"></p>
+
+    <label for="passwordInput">Enter password: </label>
+    <input type="text" id="passwordInput" />
+    <button id="displayPasswordBtn">Display Password</button>
+    <button id="checkValidPasswordBtn">Check Password</button>
+    <p id="showPasswordResult"></p>
 
     <script>
       const ageInput = document.querySelector("#ageInput");
@@ -61,6 +67,32 @@
         } else {
           showStudentEligibility.textContent = `You are not eligible`;
           showStudentEligibility.style.color = "red";
+        }
+      });
+
+      const passwordInput = document.getElementById("passwordInput");
+      const displayPasswordBtn = document.getElementById("displayPasswordBtn");
+      const checkValidPasswordBtn = document.getElementById(
+        "checkValidPasswordBtn"
+      );
+      const showPasswordResult = document.getElementById("showPasswordResult");
+
+      displayPasswordBtn.addEventListener("click", function () {
+        const password = passwordInput.value;
+        console.log(password);
+        showPasswordResult.textContent = `Your password: ${password}`;
+        showPasswordResult.style.color = "black";
+      });
+
+      checkValidPasswordBtn.addEventListener("click", function () {
+        const password = passwordInput.value;
+        if (password.includes("@")) {
+          showPasswordResult.textContent = `Password Accepted`;
+          showPasswordResult.style.color = "green";
+        } else {
+          showPasswordResult.textContent =
+            "Invalid Password. Password must contain @ symbol.";
+          showPasswordResult.style.color = "red";
         }
       });
     </script>

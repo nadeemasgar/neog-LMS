@@ -1,1 +1,109 @@
-<!-- pending -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="aboutJStextarea">What is JavaScript? </label>
+    <textarea id="aboutJStextarea" rows="4" cols="50"></textarea>
+    <button id="displayJSBtn">Diplay Answer</button>
+    <button id="countWordsBtn">Count Words</button>
+    <p id="showAboutJS"></p>
+
+    <label for="todosTextarea">List Todo </label>
+    <textarea id="todosTextarea" rows="4" cols="50"></textarea>
+    <button id="displayTodosBtn">Diplay Todos</button>
+    <button id="countTodosBtn">Count Todos</button>
+    <p id="showTodos"></p>
+
+    <label for="passwordTextarea">Enter Password</label>
+    <textarea id="passwordTextarea" rows="4" cols="50"></textarea>
+    <button id="displayPassBtn">Diplay Password</button>
+    <button id="checkPassBtn">Check Password</button>
+    <p id="showPassword"></p>
+
+    <script>
+      const aboutJStextarea = document.getElementById("aboutJStextarea");
+      const displayJSBtn = document.getElementById("displayJSBtn");
+      const countWordsBtn = document.getElementById("countWordsBtn");
+      const showAboutJS = document.getElementById("showAboutJS");
+
+      displayJSBtn.addEventListener("click", function () {
+        const aboutJS = aboutJStextarea.value;
+        showAboutJS.textContent = `Your answer: ${aboutJS}`;
+        showAboutJS.style.color = "black";
+      });
+
+      countWordsBtn.addEventListener("click", function () {
+        const aboutJS = aboutJStextarea.value;
+        const count = aboutJS.split(" ");
+
+        if (count.length > 7) {
+          showAboutJS.innerHTML = `
+             <p>Your answer: ${aboutJS}</p>
+             <p> Word count exceeding. </p>
+             `;
+
+          showAboutJS.style.color = "red";
+        } else {
+          showAboutJS.innerHTML = `
+             <p>Your answer: ${aboutJS}</p>
+             <p> Good </p>.
+             `;
+
+          showAboutJS.style.color = "green";
+        }
+      });
+
+      const todosTextarea = document.getElementById("todosTextarea");
+      const displayTodosBtn = document.getElementById("displayTodosBtn");
+      const countTodosBtn = document.getElementById("countTodosBtn");
+      const showTodos = document.getElementById("showTodos");
+
+      displayTodosBtn.addEventListener("click", function () {
+        const todos = todosTextarea.value;
+        showTodos.textContent = `Your todos: ${todos}`;
+        showTodos.style.color = "black";
+      });
+
+      countTodosBtn.addEventListener("click", function () {
+        const todos = todosTextarea.value;
+        const countTodo = todos.split(",");
+
+        showTodos.textContent = ` Total number of todos: ${countTodo.length}`;
+        showTodos.style.color = "green";
+      });
+
+      const passwordTextarea = document.getElementById("passwordTextarea");
+      const displayPassBtn = document.getElementById("displayPassBtn");
+      const checkPassBtn = document.getElementById("checkPassBtn");
+      const showPassword = document.getElementById("showPassword");
+
+      displayPassBtn.addEventListener("click", function () {
+        const password = passwordTextarea.value;
+        showPassword.textContent = `Your password: ${password}`;
+        showPassword.style.color = "black";
+      });
+
+      checkPassBtn.addEventListener("click", function () {
+        const password = passwordTextarea.value;
+
+        if (
+          password.length > 5 &&
+          (password.includes("@") ||
+            password.includes("!") ||
+            password.includes("$"))
+        ) {
+          showPassword.textContent = "Password Accepted";
+          showPassword.style.color = "green";
+        } else {
+          showPassword.textContent =
+            "Invalid password. Password should be more than 5 characters and must contain @ or ! $ symbol";
+          showPassword.style.color = "red";
+        }
+      });
+    </script>
+  </body>
+</html>

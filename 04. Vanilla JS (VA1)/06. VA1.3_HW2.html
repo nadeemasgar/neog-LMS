@@ -1,1 +1,58 @@
-<!-- penidng -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="bookReviewTextarea">Enter your book review:</label>
+    <textarea id="bookReviewTextarea" rows="4" cols="50"></textarea>
+    <button id="clickReviewBtn">Display Book Review</button>
+    <p id="showReviews"></p>
+
+    <label for="personalBioTextArea">Enter your personal bio:</label>
+    <textarea id="personalBioTextArea" rows="4" cols="50"></textarea>
+    <button id="clickBioBtn">Display Styled Bio</button>
+    <p id="showBio"></p>
+
+    <label for="diaryTextarea">Enter your personal diary entry:</label>
+    <textarea id="diaryTextarea" rows="4" cols="50"></textarea>
+    <button id="clickDiaryBtn">Display Diary Entry</button>
+    <p id="showDiaryEntry"></p>
+
+    <script>
+      const bookReviewTextarea = document.getElementById("bookReviewTextarea");
+      const clickReviewBtn = document.getElementById("clickReviewBtn");
+      const showReviews = document.getElementById("showReviews");
+
+      clickReviewBtn.addEventListener("click", function () {
+        const bookReview = bookReviewTextarea.value;
+        showReviews.textContent = `Your book review: ${bookReview}`;
+      });
+
+      const personalBioTextArea = document.getElementById(
+        "personalBioTextArea"
+      );
+      const clickBioBtn = document.getElementById("clickBioBtn");
+      const showBio = document.getElementById("showBio");
+
+      clickBioBtn.addEventListener("click", function () {
+        const personalBio = personalBioTextArea.value;
+        showBio.innerHTML = `<i>${personalBio}</i>`;
+      });
+
+      const diaryTextarea = document.getElementById("diaryTextarea");
+      const clickDiaryBtn = document.getElementById("clickDiaryBtn");
+      const showDiaryEntry = document.getElementById("showDiaryEntry");
+
+      clickDiaryBtn.addEventListener("click", function () {
+        const diaryEntry = diaryTextarea.value;
+        showDiaryEntry.innerHTML = `
+            <strong>${new Date().toLocaleString()}</strong>
+            <p>${diaryEntry}</p>
+        `;
+      });
+    </script>
+  </body>
+</html>

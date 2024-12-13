@@ -21,6 +21,16 @@
     <button id="displayBioBtn">Display Bio</button>
     <p id="showBio"></p>
 
+    <label for="goalTextarea">Your list of goals: </label>
+    <textarea id="goalTextarea" rows="4" cols="50"></textarea>
+    <button id="displayGoalsBtn">Display Goals</button>
+    <p id="showGoals"></p>
+
+    <label for="storyTextArea">Enter a short story or ancedote: </label>
+    <textarea id="storyTextArea" rows="4" cols="50"></textarea>
+    <button id="displayStoryBtn">Display Story</button>
+    <p id="showStory"></p>
+
     <script>
       const bookListTextarea = document.getElementById("bookListTextarea");
       const displayBookBtn = document.getElementById("displayBookBtn");
@@ -53,6 +63,15 @@
       displayBioBtn.addEventListener("click", function () {
         const bio = bioTextarea.value;
         showBio.textContent = `Your personal bio: ${bio}`;
+      });
+
+      const storyTextArea = document.getElementById("storyTextArea");
+      const displayStoryBtn = document.getElementById("displayStoryBtn");
+      const showStory = document.getElementById("showStory");
+
+      displayStoryBtn.addEventListener("click", function () {
+        const stories = storyTextArea.value;
+        showStory.textContent = `Your short story or anecdote: ${stories}`;
       });
     </script>
   </body>
