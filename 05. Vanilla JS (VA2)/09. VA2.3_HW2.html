@@ -1,0 +1,84 @@
+<!-- Incomplete -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label>Choose a season:</label>
+    <select id="selectSeason">
+      <option value="spring">Spring</option>
+      <option value="summer">Summer</option>
+      <option value="winter">Winter</option>
+    </select>
+    <button id="displayWeatherBtn">Display Typical Weather</button>
+    <p id="showWeatherResult"></p>
+
+    <label>Choose a movie genre:</label>
+    <select id="selectMovie">
+      <option value="science_fiction">Science Fiction</option>
+      <option value="mystery">Mystery</option>
+      <option value="romance">Romance</option>
+    </select>
+    <button id="displayMovieBtn">Display Movie Recommendation</button>
+    <p id="showMovieResult"></p>
+
+    <label>Choose a pet</label>
+    <select id="petSelect">
+      <option value="dog">Dog</option>
+      <option value="cat">Cat</option>
+      <option value="fish">Fish</option>
+    </select>
+    <button id="displayPetBtn">Display Fun Fact</button>
+    <p id="showPetResult"></p>
+
+    <label>Choose a musical instrument</label>
+    <select id="muicalSelect">
+      <option value="guitar">Guitar</option>
+      <option value="piano">Piano</option>
+      <option value="violin">Violin</option>
+    </select>
+    <p id="showMusicalInstrument"></p>
+
+    <label>Choose a Planet</label>
+    <select id="planetSelect">
+      <option value="earth">Earth</option>
+      <option value="mars">Mars</option>
+      <option value="jupiter">Jupiter</option>
+    </select>
+    <button id="displayPlanetFact">Display Planet Fact</button>
+    <p id="showPlanetResult"></p>
+
+    <script>
+      const selectSeason = document.getElementById("selectSeason");
+      const displayWeatherBtn = document.getElementById("displayWeatherBtn");
+      const showWeatherResult = document.getElementById("showWeatherResult");
+
+      displayWeatherBtn.addEventListener("click", function () {
+        const season = selectSeason.value;
+        const seasonInfo = {
+          spring: "It is rainy",
+          summer: "It is summer",
+          winter: "It is cool",
+        };
+        showWeatherResult.textContent = `Typical weather: ${seasonInfo[season]}`;
+      });
+
+      const musicalSelect = document.getElementById("muicalSelect");
+      const showMusicalInstrument = document.getElementById(
+        "showMusicalInstrument"
+      );
+      musicalSelect.addEventListener("change", function () {
+        const musicalPreference = musicalSelect.value;
+        const musicInfo = {
+          guitar: "It is nice",
+          piano: "It is average",
+          violin: "It is disturbing",
+        };
+        showMusicalInstrument.textContent = `Sound: ${musicInfo[musicalPreference]}`;
+      });
+    </script>
+  </body>
+</html>
