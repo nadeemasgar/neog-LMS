@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label>Select a Color:</label>
+    <select id="selectColor">
+      <option value="Red">Red</option>
+      <option value="Yellow">Yellow</option>
+      <option value="Green">Green</option>
+    </select>
+    <p id="selectedColorResult"></p>
+
+    <label>Select a Day:</label>
+    <select id="daySelectDropdown">
+      <option value="Sunday">Sunday</option>
+      <option value="Monday">Monday</option>
+      <option value="Thursday">Thursday</option>
+    </select>
+    <p id="dayResult"></p>
+
+    <label>Select a Country:</label>
+    <select id="countrySelect">
+      <option value="usa">USA</option>
+      <option value="india">India</option>
+      <option value="mexico">Mexico</option>
+    </select>
+    <p id="countryResult"></p>
+
+    <script>
+      const colorSelect = document.getElementById("selectColor");
+      const selectedColorResult = document.getElementById(
+        "selectedColorResult"
+      );
+
+      colorSelect.addEventListener("change", function () {
+        const selectColor = colorSelect.value;
+        selectedColorResult.textContent = `You selected: ${selectColor}`;
+      });
+
+      const daySelect = document.getElementById("daySelectDropdown");
+      const dayResult = document.getElementById("dayResult");
+
+      daySelect.addEventListener("change", function () {
+        const selectDay = daySelect.value;
+        if (selectDay === "Sunday") {
+          dayResult.textContent = "It is a weekend";
+        } else {
+          dayResult.textContent = "It is a weekday";
+        }
+      });
+
+      const countrySelect = document.getElementById("countrySelect");
+      const countryResult = document.getElementById("countryResult");
+
+      countrySelect.addEventListener("change", function () {
+        const slectedCountry = countrySelect.value;
+
+        const capitals = {
+          usa: "Wasington, D.C.",
+          india: "New Delhi",
+          mexico: "Mexico City",
+        };
+
+        countryResult.textContent = `Capital: ${capitals[slectedCountry]}`;
+      });
+    </script>
+  </body>
+</html>
