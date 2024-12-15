@@ -63,7 +63,7 @@
       for (let i = 0; i < sizeRadioButtons.length; i++) {
         sizeRadioButtons[i].addEventListener("change", function () {
           const sizePreference = document.querySelector(
-            'input[name="size"]:checked'
+            'input[type="size"]:checked'
           ).value;
           sizePreferenceResult.textContent = `Selected Size: ${sizePreference}`;
         });

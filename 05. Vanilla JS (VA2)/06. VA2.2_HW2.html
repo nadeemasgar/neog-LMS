@@ -59,15 +59,12 @@
       );
 
       bookRecommBtn.addEventListener("click", function () {
-        let selectedBook = "";
-        for (let i = 0; i < bookRadioButtons.length; i++) {
-          selectedBook = document.querySelector(
-            'input[name="genre"]:checked'
-          )?.value;
-        }
+        let selectedBook = document.querySelector(
+          'input[name="genre"]:checked'
+        );
 
         if (selectedBook) {
-          showBookRecommendation.textContent = `Book Recommendation for: ${selectedBook}`;
+          showBookRecommendation.textContent = `Book Recommendation for: ${selectedBook.value}`;
         } else {
           showBookRecommendation.textContent = `Please select a book genre.`;
         }
@@ -78,15 +75,12 @@
       const showClothing = document.getElementById("showClothing");
 
       styleBtn.addEventListener("click", function () {
-        let selectedStyle = "";
-        for (let i = 0; i < clothingRadioButtons.length; i++) {
-          selectedStyle = document.querySelector(
-            'input[name="style"]:checked'
-          )?.value;
-        }
+        let selectedStyle = document.querySelector(
+          'input[name="style"]:checked'
+        );
 
         if (selectedStyle) {
-          showClothing.textContent = `Selected clothing style: ${selectedStyle}`;
+          showClothing.textContent = `Selected clothing style: ${selectedStyle.value}`;
         } else {
           showClothing.textContent = `Please select a clothing style.`;
         }
@@ -99,14 +93,12 @@
       );
 
       weatherBtn.addEventListener("click", function () {
-        let selectedWeather = "";
-        for (let i = 0; i < weatherRadioButtons.length; i++) {
-          selectedWeather = document.querySelector(
-            'input[name="weather"]:checked'
-          )?.value;
-        }
+        let selectedWeather = document.querySelector(
+          'input[name="weather"]:checked'
+        );
+
         if (selectedWeather) {
-          showWeatherPreference.textContent = `Selected weather: ${selectedWeather}`;
+          showWeatherPreference.textContent = `Selected weather: ${selectedWeather.value}`;
         } else {
           showWeatherPreference.textContent = `Please select a weather`;
         }
