@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="productOrderForm">
+      <label for="name">
+        Product Name:
+        <select name="productname" id="productname">
+          <option value="Product A">Product A</option>
+          <option value="Product B">Product B</option>
+          <option value="Product C">Product C</option>
+        </select>
+      </label>
+      <br /><br />
+
+      <label>
+        Quantity:
+        <input type="number" name="quantity" id="quantity" value="1" />
+      </label>
+      <br /><br />
+
+      <label for="address">
+        Shipping Address: <textarea name="address" id="address"></textarea>
+      </label>
+      <br /><br />
+
+      <label for="payment">
+        Payment Method: <br />
+        <label id="card">
+          <input type="radio" name="payment" value="Credit Card" id="card" />
+          Credit Card
+        </label>
+        <br />
+        <label for="paypal">
+          <input type="radio" name="payment" value="PayPal" id="paypal" />
+          PayPal
+        </label>
+        <br />
+        <label for="bankTransfer">
+          <input
+            type="radio"
+            name="payment"
+            value="Bank Transfer"
+            id="bankTransfer"
+          />
+          Bank Transfer
+        </label>
+      </label>
+      <br /><br />
+
+      <label for="delivery">
+        Delivery Speed:
+        <select name="delivery" id="delivery">
+          <option value="standard">Standard</option>
+          <option value="express">Express</option>
+          <option value="same day">Same Day</option>
+        </select>
+      </label>
+      <br /><br />
+
+      <input type="submit" value="Submit" />
+
+      <div id="showFormResult"></div>
+    </form>
+
+    <script>
+      const productOrderForm = document.getElementById("productOrderForm");
+
+      productOrderForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const productname = document.getElementById("productname").value;
+        const quantity = document.getElementById("quantity").value;
+        const address = document.getElementById("address").value;
+        const paymentMethod = document.querySelector(
+          'input[name="payment"]:checked'
+        ).value;
+        const deliverySpeed = document.getElementById("delivery").value;
+
+        const showFormResult = document.getElementById("showFormResult");
+
+        const result = `
+            <p><strong>Product Name:</strong> ${productname} </p>
+            <p><strong>Quantity:</strong> ${quantity}</p>
+            <p><strong>Address:</strong> ${address}</p>
+            <p><strong>Payment Methd:</strong> ${paymentMethod}</p>
+            <p><strong>Delivery Speed:</strong> ${deliverySpeed}
+        `;
+
+        showFormResult.innerHTML = result;
+      });
+    </script>
+  </body>
+</html>

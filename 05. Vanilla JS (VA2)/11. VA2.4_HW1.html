@@ -9,7 +9,7 @@
     <h2>Event Registration Form</h2>
 
     <form id="eventRegistrationForm">
-      <label for="name">Name: <input type="text" id="name" value="hi" /></label>
+      <label for="name">Name: <input type="text" id="name" /></label>
       <br /><br />
 
       <label>Email:</label>
@@ -31,13 +31,19 @@
       <br />
       <br />
 
-      <select name="size" id="size">
-        <option value="Small">Small</option>
-        <option value="Medium">Medium</option>
-        <option value="Large">Large</option>
-      </select>
-      <p id="showRegistrationDetail"></p>
+      <label for="size">
+        T-shirt Size
+        <select name="size" id="size">
+          <option value="Small">Small</option>
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
+        </select>
+      </label>
+      <br /><br />
+
       <button type="submit" id="register">Register</button>
+
+      <p id="showRegistrationDetail"></p>
     </form>
 
     <script>
@@ -64,11 +70,11 @@
         );
 
         const userResult = `
-          <p>Name: ${nameInput}</p>
-          <p>Email: ${emailInput}</p>
-          <p>Event: ${eventInput}</p>
-          <p>dietaryInput: ${dietary.join(", ")}</p>
-          <p>Size: ${sizeInput}</p>
+          <p><strong>Name:</strong> ${nameInput}</p>
+          <p><strong>Email:</strong> ${emailInput}</p>
+          <p><strong>Event:</strong> ${eventInput}</p>
+          <p><strong>dietaryInput:</strong> ${dietary.join(", ")}</p>
+          <p><strong>Size:</strong> ${sizeInput}</p>
         `;
 
         showRegistrationDetail.innerHTML = userResult;
