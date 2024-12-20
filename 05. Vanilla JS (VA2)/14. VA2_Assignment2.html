@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="formDetails">
+      <label for="fullName">
+        Full Name
+        <input type="text" name="fullName" id="fullName" />
+      </label>
+      <br /><br />
+      <label for="phoneNumber">
+        Phone Number:
+        <input type="number" name="phoneNumber" id="phoneNumber" />
+      </label>
+      <br /><br />
+      <label for="email">
+        Email:
+        <input type="email" name="email" id="email" />
+      </label>
+      <br /><br />
+      <label for="gender">
+        Gender: <br />
+        <label><input type="radio" name="gender" value="Male" />Male</label>
+        <br />
+        <label><input type="radio" name="gender" value="Female" />Female</label>
+        <br />
+        <label><input type="radio" name="gender" value="Other" />Other</label>
+      </label>
+      <br /><br />
+
+      <label for="graduate">
+        Are you a college graduate <br />
+        <label><input type="radio" name="graduate" value="Yes" /> Yes</label>
+        <br />
+        <label><input type="radio" name="graduate" value="No" /> No</label>
+        <br />
+        <label>
+          <input type="radio" name="graduate" value="Dropout" /> Dropout
+        </label>
+      </label>
+      <br /><br />
+
+      <label for="working">
+        Are you working anywhere full-time or part-time <br />
+        <select name="working" id="working">
+          <option value="working full time">Working Full Time</option>
+          <br />
+          <option value="working part time">Working Part Time</option>
+          <br />
+          <option value="Not working anywhere">Not working anywhere</option>
+        </select>
+      </label>
+      <br /><br />
+
+      <label for="learn">
+        Why do you want to learn web development <br />
+        <textarea name="learn" id="learn" rows="4" cols="50"></textarea>
+      </label>
+      <br /><br />
+
+      <label for="channel">
+        How did you come to know about us? <br />
+        <label>
+          <input type="checkbox" name="channel" value="Youtube" /> Youtube
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" name="channel" value="Instagram" /> Instagram
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" name="channel" value="Linkedin" /> Linkedin
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" name="channel" value="Twitter" /> Twitter
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" name="channel" value="Friends and Family" />
+          Friends and Family
+        </label>
+        <br />
+        <label>
+          <input type="checkbox" name="channel" value="Other" /> Other
+        </label>
+        <br />
+      </label>
+      <br />
+
+      <label for="confirmation">
+        <input type="checkbox" id="confirmation" required />
+        I confirm that all information in this form is factually true.
+      </label>
+
+      <input type="submit" value="Submit Details" />
+
+      <p id="showFormDetails"></p>
+    </form>
+
+    <script>
+      const formDetails = document.getElementById("formDetails");
+      formDetails.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const fullName = document.getElementById("fullName").value;
+        const phoneNumber = document.getElementById("phoneNumber").value;
+        const email = document.getElementById("email").value;
+        const gender = document.querySelector(
+          'input[name="gender"]:checked'
+        ).value;
+        const graduate = document.querySelector(
+          'input[name="graduate"]:checked'
+        ).value;
+        const working = document.getElementById("working").value;
+        const webdev = document.getElementById("learn").value;
+        const channel = document.querySelectorAll(
+          'input[name="channel"]:checked'
+        );
+        const allChannels = [];
+        for (let i = 0; i < channel.length; i++) {
+          allChannels.push(channel[i].value);
+        }
+
+        const showFormDetails = document.getElementById("showFormDetails");
+
+        const result = `
+            <p><strong>Name: </strong> ${fullName}</p>
+            <p><strong>Phone Number: </strong> ${phoneNumber}</p>
+            <p><strong>Email Id: </strong> ${email}</p>
+            <p><strong>Gender: </strong> ${gender}</p>
+            <p><strong>Are you a college graduate: </strong> ${graduate}</p>
+            <p><strong>Are you working anywhere full-time or part-time?: </strong> ${working}</p>
+            <p><strong>Why do you want to learn web development: </strong> ${webdev}</p>
+            <p><strong>How did you come to know about us?: </strong> ${allChannels.join(
+              ", "
+            )}</p>
+        `;
+
+        showFormDetails.innerHTML = result;
+      });
+    </script>
+  </body>
+</html>
