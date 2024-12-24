@@ -117,7 +117,7 @@
 
       function updatePlayerList(filterPlayers) {
         playerList.innerHTML = "";
-
+        console.log(filterPlayers);
         for (let i = 0; i < filterPlayers.length; i++) {
           const col = document.createElement("div");
           col.className = "col-md-4";
@@ -176,7 +176,7 @@
 
           players.push(newPlayer);
 
-          updatePlayerList();
+          updatePlayerList(players);
         }
       });
 
